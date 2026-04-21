@@ -1,0 +1,71 @@
+body, body * { cursor: none !important; }
+        .custom-cursor-bracket {
+          position: fixed;
+          top: 0;
+          left: 0;
+          font-family: 'Fira Code', 'Menlo', monospace;
+          font-size: 28px;
+          font-weight: 400;
+          color: #4647d3;
+          pointer-events: none;
+          z-index: 99997;
+          opacity: 0;
+          transition: opacity 0.2s ease;
+          text-shadow: 0 0 8px rgba(70, 71, 211, 0.5);
+          transform: translate(-50%, -50%);
+        }
+        .custom-cursor-bracket.visible {
+          opacity: 1;
+        }
+          .custom-cursor-bracket {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  font-family: 'Fira Code', 'Menlo', monospace;
+  font-size: 28px;
+  font-weight: 400;
+  color: #4647d3;
+  pointer-events: none;
+  z-index: 99997;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  text-shadow: 0 0 8px rgba(70, 71, 211, 0.5);
+}
+.custom-cursor-bracket.visible {
+  opacity: 1;
+}
+    
+
+
+/* CustomCursor.css */
+body, body * {
+  cursor: none !important;
+}
+
+.cursor-dot {
+  position: fixed;
+  top: -4px;
+  left: -4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #4647d3;
+  pointer-events: none;
+  z-index: 999999;
+  will-change: transform;
+}
+
+.cursor-ring {
+  position: fixed;
+  top: -20px;
+  left: -20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(83, 221, 252, 0.5);
+  pointer-events: none;
+  z-index: 999998;
+  will-change: transform;
+  transition: width 0.2s, height 0.2s, opacity 0.2s;
+}

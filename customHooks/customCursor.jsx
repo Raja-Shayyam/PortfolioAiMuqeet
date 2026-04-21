@@ -173,6 +173,36 @@
 // components/CustomCursor.jsx
 import { useEffect, useRef, useState } from 'react';
 import { Box } from '@mui/material';
+import '../Css/customCursor.css'
+
+// CustomCursor.jsx
+
+// export const CustomCursor = () => {
+//   const dotRef = useRef(null);
+//   const ringRef = useRef(null);
+
+//   useEffect(() => {
+//     const onMouseMove = (e) => {
+//       const { clientX, clientY } = e;
+//       if (dotRef.current) {
+//         dotRef.current.style.transform = `translate3d(${clientX}px, ${clientY}px, 0)`;
+//       }
+//       if (ringRef.current) {
+//         ringRef.current.style.transform = `translate3d(${clientX}px, ${clientY}px, 0)`;
+//       }
+//     };
+
+//     window.addEventListener('mousemove', onMouseMove);
+//     return () => window.removeEventListener('mousemove', onMouseMove);
+//   }, []);
+
+//   return (
+//     <>
+//       <div ref={dotRef} className="cursor-dot" />
+//       <div ref={ringRef} className="cursor-ring" />
+//     </>
+//   );
+// };
 
 export const CustomCursor = () => {
   const cursorDotRef = useRef(null);
@@ -193,13 +223,38 @@ export const CustomCursor = () => {
       el.style.cursor = 'none';
     });
 
+    // const onMouseMove = (e) => {
+    //   const { clientX, clientY } = e;
+    //   console.log('mousemove', clientX, clientY); // Already confirmed working
+
+    //   console.log('dot ref exists?', !!cursorDotRef.current); // Should be true
+    //   console.log('ring ref exists?', !!cursorRingRef.current); // Should be true
+
+    //   // Check if RAF is being scheduled
+    //   console.log('scheduling RAF');
+    //   // ... rest
+    // };
+    // const onMouseMove = (e) => {
+    //   const { clientX, clientY } = e;
+
+    //   if (cursorDotRef.current) {
+    //     cursorDotRef.current.style.transform = `translate3d(${clientX}px, ${clientY}px, 0)`;
+    //   }
+    //   if (cursorRingRef.current) {
+    //     cursorRingRef.current.style.transform = `translate3d(${clientX}px, ${clientY}px, 0)`;
+    //   }
+    // };
+
     const onMouseMove = (e) => {
       const { clientX, clientY } = e;
       setMousePos({ x: clientX, y: clientY });
 
+      // console.log('rfid not working');
       if (rafId.current) cancelAnimationFrame(rafId.current);
 
-      rafId.current = (() => {
+      rafId.current = requestAnimationFrame(() => {
+        // console.log('rfid working');
+
         // Dot follows exactly
         if (cursorDotRef.current) {
           cursorDotRef.current.style.transform = `translate3d(${clientX}px, ${clientY}px, 0)`;
@@ -226,6 +281,7 @@ export const CustomCursor = () => {
         setIsHovered(true);
       }
     };
+    // window.addEventListener('mousemove', (e) => console.log(e.clientX, e.clientY));
 
     const onMouseOut = (e) => {
       const target = e.target;
@@ -287,45 +343,8 @@ export const CustomCursor = () => {
   return (
     <>
       {/* Global style to hide default cursor */}
-      <style>{`
-        body, body * { cursor: none !important; }
-        .custom-cursor-bracket {
-          position: fixed;
-          top: 0;
-          left: 0;
-          font-family: 'Fira Code', 'Menlo', monospace;
-          font-size: 28px;
-          font-weight: 400;
-          color: #4647d3;
-          pointer-events: none;
-          z-index: 99997;
-          opacity: 0;
-          transition: opacity 0.2s ease;
-          text-shadow: 0 0 8px rgba(70, 71, 211, 0.5);
-          transform: translate(-50%, -50%);
-        }
-        .custom-cursor-bracket.visible {
-          opacity: 1;
-        }
-          .custom-cursor-bracket {
-  position: fixed;
-  top: 0;
-  left: 0;
-  transform: translate(-50%, -50%);
-  font-family: 'Fira Code', 'Menlo', monospace;
-  font-size: 28px;
-  font-weight: 400;
-  color: #4647d3;
-  pointer-events: none;
-  z-index: 99997;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  text-shadow: 0 0 8px rgba(70, 71, 211, 0.5);
-}
-.custom-cursor-bracket.visible {
-  opacity: 1;
-}
-      `}</style>
+      {/* <style>{`
+          `}</style> */}
 
       {/* Gradient Trailing Ring (Option 2) */}
       <Box
