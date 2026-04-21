@@ -23,7 +23,7 @@ import { handleNavClick } from "../customHooks/trackSection";
 
 const HomeSection = () => {
   return (
-    <Box className="mesh-gradient" sx={{ position: "relative", minHeight: "100vh", padding: '10px 0 10px 0' }}>
+    <Box className="mesh-gradient" sx={{ position: "relative", minHeight: "100vh", padding: '10px 0 10px 0', mt: 4 }}>
       {/* Ambient Glows */}
       <Box
         sx={{

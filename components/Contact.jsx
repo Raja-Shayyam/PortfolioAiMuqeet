@@ -125,15 +125,18 @@ const ContactPage = () => {
                         <Box>
                           <Typography
                             variant="caption"
-                            textTransform="uppercase"
-                            letterSpacing="0.1em"
-                            color="#595c5e"
-                            fontWeight={700}
+                            sx={{
+                              letterSpacing: "0.1em",
+                              textTransform: "uppercase",
+                              color: "#595c5e",
+                              fontWeight: '700'
+                            }}
                           >
                             Email
                           </Typography>
                           <Typography variant="h6" fontWeight={600}>
-                            hello@rajamuqeet.com
+                            {/* hello@rajamuqeet.com */}
+                            upthework@gmail.com
                           </Typography>
                         </Box>
                       </div>
@@ -155,14 +158,16 @@ const ContactPage = () => {
                         <Box>
                           <Typography
                             variant="caption"
-                            textTransform="uppercase"
-                            letterSpacing="0.1em"
-                            color="#595c5e"
-                            fontWeight={700}
+                            sx={{
+                              textTransform: "uppercase",
+                              letterSpacing: "0.1em",
+                              color: "#595c5e",
+                              fontWeight: '700'
+                            }}
                           >
                             Location
                           </Typography>
-                          <Typography variant="h6" fontWeight={600}>
+                          <Typography variant="h6" sx={{ fontWeight: '600' }}>
                             Global / Remote
                           </Typography>
                         </Box>
@@ -177,6 +182,7 @@ const ContactPage = () => {
                       target="_blank"
                       className="hover-lift"
                       sx={{
+                        mt: 4,
                         p: 3,
                         bgcolor: "#dfe3e6",
                         color: "#2c2f31",
@@ -304,7 +310,7 @@ const ContactPage = () => {
                         type="email"
                         variant="outlined"
                         className="ghost-input"
-                        InputLabelProps={{
+                        inputlabelprops={{
                           shrink: true,
                           sx: {
                             textTransform: "uppercase",
@@ -326,7 +332,7 @@ const ContactPage = () => {
                       rows={6}
                       variant="outlined"
                       className="ghost-input"
-                      InputLabelProps={{
+                      inputlabelprops={{
                         shrink: true,
                         sx: {
                           textTransform: "uppercase",
@@ -344,6 +350,7 @@ const ContactPage = () => {
                     variant="contained"
                     className="hover-lift"
                     sx={{
+                      mt: 5,
                       height: 64,
                       borderRadius: 999,
                       background: "linear-gradient(90deg, #4647d3, #8126cf)",
@@ -373,9 +380,9 @@ const ContactPage = () => {
                 </Box>
                 <Typography
                   variant="caption"
-                  textTransform="uppercase"
                   letterSpacing="0.05em"
                   sx={{
+                    textTransform: "uppercase",
                     display: "block",
                     textAlign: "center",
                     mt: 4,

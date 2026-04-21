@@ -151,7 +151,10 @@ const ServicesSection = () => {
                 <Typography variant="h4" fontWeight={700} fontFamily="Plus Jakarta Sans, Lato, sans-serif" letterSpacing="-0.02em">
                   Full Stack Web Development
                 </Typography>
-                <Typography variant="body2" color="#595c5e" lineHeight={1.6}>
+                <Typography variant="body2" sx={{
+                  color: "#595c5e",
+                  lineHeight: '1.6'
+                }}>
                   End-to-end architecture from refractive frontend interfaces to scalable server-side logic.
                 </Typography>
                 <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: "wrap" }}>
@@ -205,7 +208,11 @@ const ServicesSection = () => {
                 }}
               />
               <Stack spacing={4} sx={{ position: "relative", zIndex: 1 }}>
-                <Stack direction="row" justifyContent="space-between" alignItems="flex-start">
+                <Stack direction="row"
+                  sx={{
+                    justifyContent: "space-between",
+                    alignItems: "flex-start"
+                  }}>
                   <Box
                     sx={{
                       p: 2,
@@ -223,13 +230,20 @@ const ServicesSection = () => {
                     02
                   </Typography>
                 </Stack>
-                <Typography variant="h4" fontWeight={700} fontFamily="Plus Jakarta Sans, Lato, sans-serif" letterSpacing="-0.02em">
+                <Typography variant="h4" sx={{
+                  fontWeight: '700',
+                  fontFamily: "Plus Jakarta Sans, Lato, sans-serif",
+                  letterSpacing: "-0.02em"
+                }}>
                   AI Chatbot Development
                 </Typography>
-                <Typography variant="body2" color="#595c5e" lineHeight={1.6}>
+                <Typography variant="body2" sx={{
+                  color: "#595c5e",
+                  lineHeight: '1.6'
+                }}>
                   Integrating LLMs and conversational intelligence into your workflow for seamless automation.
                 </Typography>
-                <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
+                <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: "wrap" }}>
                   {["OpenAI", "LangChain", "Python"].map((tech) => (
                     <Chip
                       key={tech}
@@ -262,7 +276,10 @@ const ServicesSection = () => {
               }}
             >
               <Stack spacing={4}>
-                <Stack direction="row" justifyContent="space-between" alignItems="flex-start">
+                <Stack direction="row" sx={{
+                  justifyContent: "space-between",
+                  alignItems: "flex-start"
+                }}>
                   <Box
                     sx={{
                       p: 2,
@@ -283,7 +300,7 @@ const ServicesSection = () => {
                 <Typography variant="h5" fontWeight={700} fontFamily="Plus Jakarta Sans, Lato, sans-serif" letterSpacing="-0.02em">
                   API Development
                 </Typography>
-                <Typography variant="body2" color="#595c5e" lineHeight={1.6}>
+                <Typography variant="body2" sx={{ color: "#595c5e", lineHeight: '1.6' }}>
                   Robust, secure, and documented RESTful and GraphQL endpoints for fluid data flow.
                 </Typography>
               </Stack>
@@ -303,7 +320,10 @@ const ServicesSection = () => {
               }}
             >
               <Stack spacing={4}>
-                <Stack direction="row" justifyContent="space-between" alignItems="flex-start">
+                <Stack direction="row" sx={{
+                  justifyContent: "space-between",
+                  alignItems: "flex-start"
+                }}>
                   <Box
                     sx={{
                       p: 2,
@@ -324,7 +344,7 @@ const ServicesSection = () => {
                 <Typography variant="h5" fontWeight={700} fontFamily="Plus Jakarta Sans, Lato, sans-serif" letterSpacing="-0.02em">
                   Database Design
                 </Typography>
-                <Typography variant="body2" color="#595c5e" lineHeight={1.6}>
+                <Typography variant="body2" sx={{ color: "#595c5e", lineHeight: '1.6' }}>
                   Architecting efficient data structures using SQL and NoSQL for high-performance retrieval.
                 </Typography>
               </Stack>
@@ -344,7 +364,9 @@ const ServicesSection = () => {
               }}
             >
               <Stack spacing={4}>
-                <Stack direction="row" justifyContent="space-between" alignItems="flex-start">
+                <Stack direction="row" sx={{
+                  justifyContent: "space-between", alignItems: "flex-start"
+                }}>
                   <Box
                     sx={{
                       p: 2,
@@ -365,7 +387,7 @@ const ServicesSection = () => {
                 <Typography variant="h5" fontWeight={700} fontFamily="Plus Jakarta Sans, Lato, sans-serif" letterSpacing="-0.02em">
                   Blockchain
                 </Typography>
-                <Typography variant="body2" color="#595c5e" lineHeight={1.6}>
+                <Typography variant="body2" sx={{ color: "#595c5e", lineHeight: '1.6' }}>
                   Smart contracts and decentralized applications built on Ethereum and EVM chains.
                 </Typography>
               </Stack>
@@ -402,7 +424,7 @@ const ServicesSection = () => {
             <Row className="align-items-center g-4">
               <Col md={8}>
                 <Stack spacing={2} sx={{ position: "relative", zIndex: 1 }}>
-                  <Stack direction="row" alignItems="center" spacing={2}>
+                  <Stack direction="row" sx={{ alignItems: "center", spacing: '2' }}>
                     <BugReport sx={{ color: "#f74b6d" }} />
                     <Typography
                       variant="caption"
@@ -423,7 +445,11 @@ const ServicesSection = () => {
                   >
                     Debugging & Bug Fixing
                   </Typography>
-                  <Typography variant="body1" color="#9a9d9f" maxWidth="36rem" fontSize="1.1rem">
+                  <Typography variant="body1" sx={{
+                    color: "#9a9d9f",
+                    maxWidth: "36rem",
+                    fontSize: "1.1rem"
+                  }}>
                     Eliminating bottlenecks and resolving complex logic errors to ensure your digital
                     product runs with frictionless fluidity.
                   </Typography>

@@ -89,13 +89,14 @@ export const Header = () => {
                       // color: item === "Home" ? "#4647d3" : "#595c5e",
                       fontWeight: activeSection === item ? 700 : 500,
                       color: activeSection === item ? '#4647d3' : '#595c5e',
+                      fontSize: activeSection === item ? '1em' : '',
                       borderBottom: activeSection === item ? '2px solid' : 'none',
                       borderColor: "rgba(70, 71, 211, 0.3)",
                       // cursor: "pointer",
                       transition: "all 0.2s",
                       pb: 0.5,
                       fontFamily: "Plus Jakarta Sans, Lato, sans-serif",
-                      "&:hover": { transform: "scale(1.05)", color: "#2c2f31" },
+                      "&:hover": { transform: "scale(1.1)", color: "#2c2f31" },
                     }}
 
                     onClick={
