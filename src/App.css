@@ -1,0 +1,217 @@
+/* ===== Font Imports ===== */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Lato:wght@100;300;400;700;900&display=swap');
+
+/* ===== Global Reset & Base ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', 'Lato', sans-serif;
+  background-color: #f5f7f9;
+  color: #2c2f31;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Plus Jakarta Sans', 'Lato', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* ===== Typography Scale (consistent across all components) ===== */
+.display-large {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+}
+
+.display-medium {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.headline-large {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.headline-medium {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.body-large {
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.body-medium {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ===== Background Gradients ===== */
+.iridescent-bg {
+  background: radial-gradient(at 0% 0%, #f5f7f9 0%, transparent 50%),
+              radial-gradient(at 100% 0%, #e5c6ff 0%, transparent 50%),
+              radial-gradient(at 100% 100%, #53ddfc 0%, transparent 50%),
+              radial-gradient(at 0% 100%, #9396ff 0%, transparent 50%);
+  background-attachment: fixed;
+}
+
+.mesh-gradient {
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(70, 71, 211, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(129, 38, 207, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(83, 221, 252, 0.15) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(247, 75, 109, 0.1) 0px, transparent 50%);
+}
+
+.opaline-bg {
+  background: radial-gradient(circle at top left, #fdf7ff, transparent 50%),
+              radial-gradient(circle at bottom right, #e2fff8, transparent 50%),
+              radial-gradient(circle at center, #ffd8e7, #f7f9fb 70%);
+}
+
+/* ===== Glass Effects ===== */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border-radius: 24px;
+  border: 1px solid rgba(116, 119, 121, 0.15);
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+}
+
+/* ===== Gradient Text ===== */
+.gradient-text {
+  background: linear-gradient(90deg, #4647d3, #8126cf, #53ddfc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-text-primary {
+  background: linear-gradient(135deg, #6e3bd8, #a53173);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ===== Hover Effects ===== */
+.hover-scale {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-scale:hover {
+  transform: scale(1.02);
+  box-shadow: 0 20px 40px -10px rgba(45, 51, 55, 0.15);
+}
+
+.hover-lift {
+  transition: transform 0.3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-8px);
+}
+
+.kinetic-btn {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.kinetic-btn:hover {
+  transform: scale(1.02);
+}
+.kinetic-btn:active {
+  transform: scale(0.95);
+}
+
+/* ===== Profile Glow ===== */
+.profile-glow {
+  position: relative;
+}
+.profile-glow::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(90deg, #4647d3, #8126cf, #53ddfc);
+  border-radius: 16px;
+  opacity: 0.25;
+  filter: blur(8px);
+  transition: opacity 1s;
+}
+.profile-glow:hover::before {
+  opacity: 0.5;
+}
+
+/* ===== Project Card Image Zoom ===== */
+.project-card-img {
+  transition: transform 0.7s ease;
+}
+.project-card:hover .project-card-img {
+  transform: scale(1.1);
+}
+
+/* ===== Floating Cards (Home Page) ===== */
+.floating-card-1 {
+  transform: rotate(-6deg);
+}
+.floating-card-2 {
+  transform: rotate(12deg);
+}
+
+/* ===== Ghost Input (Contact Form) ===== */
+.ghost-input .MuiOutlinedInput-root {
+  background-color: rgba(223, 227, 230, 0.5);
+  border-radius: 12px;
+  transition: all 0.3s;
+}
+.ghost-input .MuiOutlinedInput-root:hover,
+.ghost-input .MuiOutlinedInput-root.Mui-focused {
+  background-color: #ffffff;
+}
+.ghost-input .MuiOutlinedInput-notchedOutline {
+  border: none;
+}
+
+/* ===== Hero Glow ===== */
+.hero-glow {
+  filter: blur(120px);
+  opacity: 0.4;
+}
+
+/* ===== Mesh Gradient Primary ===== */
+.mesh-gradient-primary {
+  background: linear-gradient(45deg, #6e3bd8, #cbb6ff, #a53173);
+}
+
+/* ===== Stats Value ===== */
+.stat-value {
+  font-family: 'Plus Jakarta Sans', 'Lato', sans-serif;
+  font-weight: 900;
+}
+
+/* ===== Header specific (if needed) ===== */
+.firstletter {
+  /* Custom style for header name if needed */
+}

@@ -1,0 +1,8 @@
+/* In your global CSS or styled component */
+.firstletter {
+  display: inline-block;
+}
+
+.firstletter::first-letter {
+  color: #4647d3;   /* Your accent color */
+}
