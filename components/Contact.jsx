@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import { db } from '../src/firebase.js';
+import { doc, setDoc, getDoc } from "firebase/firestore";
 import { Container, Row, Col } from "react-bootstrap";
 import {
   Box,
@@ -16,6 +18,39 @@ import {
 } from "@mui/icons-material";
 
 const ContactPage = () => {
+  const [details, setDetails] = useState({
+    name: '',
+    email: '',
+    description: ''
+  })
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setDetails((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const testFirebase = async (e) => {
+    e.preventDefault()
+    try {
+      // 1. Create a reference to a document
+      const testRef = doc(db, "tests", "hello-id");
+
+      // 2. Write to the database
+      // setStatus("Writing to Firebase...");
+      await setDoc(testRef, { message: "Hello World from the Cloud!", details: details });
+      console.log('sent');
+
+      // 3. Read it back
+      // const docSnap = await getDoc(testRef);
+      // if (docSnap.exists()) {
+      //   setStatus(`Success! Data from Firebase: ${docSnap.data().message}`);
+      // }
+    } catch (error) {
+      // setStatus("Error: Check your Firestore Permissions!");
+      console.error(error);
+    }
+  };
+
   return (
     <>
       {/* Fixed Iridescent Background */}
@@ -31,7 +66,7 @@ const ContactPage = () => {
       />
 
       {/* Main Canvas */}
-      <Box component="main" sx={{ minHeight: "100vh" }}>
+      <Box component="main" sx={{ minHeight: "100vh", py: 4 }}>
         <Container fluid="xl" sx={{ pt: { xs: 8, md: 12 }, pb: 16 }}>
           {/* Hero Section */}
           <Row className="align-items-end mb-5 g-5">
@@ -288,6 +323,9 @@ const ContactPage = () => {
                         fullWidth
                         label="Full Name"
                         placeholder="John Doe"
+                        name="name"
+                        value={details.name}
+                        onChange={handleChange}
                         variant="outlined"
                         className="ghost-input"
                         inputlabelprops={{
@@ -307,6 +345,9 @@ const ContactPage = () => {
                         fullWidth
                         label="Email Address"
                         placeholder="john@example.com"
+                        name="email"
+                        value={details.email}
+                        onChange={handleChange}
                         type="email"
                         variant="outlined"
                         className="ghost-input"
@@ -328,6 +369,9 @@ const ContactPage = () => {
                       fullWidth
                       label="Project Details"
                       placeholder="Tell me about your vision..."
+                      name="description"
+                      value={details.description}
+                      onChange={handleChange}
                       multiline
                       rows={6}
                       variant="outlined"
@@ -373,6 +417,9 @@ const ContactPage = () => {
                           },
                         }}
                       />
+                    }
+                    onClick={
+                      testFirebase
                     }
                   >
                     Send Message

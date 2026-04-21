@@ -148,7 +148,11 @@ const ServicesSection = () => {
                     01
                   </Typography>
                 </Stack>
-                <Typography variant="h4" fontWeight={700} fontFamily="Plus Jakarta Sans, Lato, sans-serif" letterSpacing="-0.02em">
+                <Typography variant="h4" sx={{
+                  fontWeight: '700',
+                  fontFamily: "Plus Jakarta Sans, Lato, sans-serif",
+                  letterSpacing: "-0.02em"
+                }}>
                   Full Stack Web Development
                 </Typography>
                 <Typography variant="body2" sx={{
@@ -297,7 +301,11 @@ const ServicesSection = () => {
                     03
                   </Typography>
                 </Stack>
-                <Typography variant="h5" fontWeight={700} fontFamily="Plus Jakarta Sans, Lato, sans-serif" letterSpacing="-0.02em">
+                <Typography variant="h5" sx={{
+                  fontWeight: '700',
+                  fontFamily: "Plus Jakarta Sans, Lato, sans-serif",
+                  letterSpacing: "-0.02em"
+                }}>
                   API Development
                 </Typography>
                 <Typography variant="body2" sx={{ color: "#595c5e", lineHeight: '1.6' }}>
@@ -341,7 +349,11 @@ const ServicesSection = () => {
                     04
                   </Typography>
                 </Stack>
-                <Typography variant="h5" fontWeight={700} fontFamily="Plus Jakarta Sans, Lato, sans-serif" letterSpacing="-0.02em">
+                <Typography variant="h5" sx={{
+                  fontWeight: '700',
+                  fontFamily: "Plus Jakarta Sans, Lato, sans-serif",
+                  letterSpacing: "-0.02em"
+                }}>
                   Database Design
                 </Typography>
                 <Typography variant="body2" sx={{ color: "#595c5e", lineHeight: '1.6' }}>
@@ -384,7 +396,11 @@ const ServicesSection = () => {
                     05
                   </Typography>
                 </Stack>
-                <Typography variant="h5" fontWeight={700} fontFamily="Plus Jakarta Sans, Lato, sans-serif" letterSpacing="-0.02em">
+                <Typography variant="h5" sx={{
+                  fontWeight: '700',
+                  fontFamily: "Plus Jakarta Sans, Lato, sans-serif",
+                  letterSpacing: "-0.02em"
+                }}>
                   Blockchain
                 </Typography>
                 <Typography variant="body2" sx={{ color: "#595c5e", lineHeight: '1.6' }}>

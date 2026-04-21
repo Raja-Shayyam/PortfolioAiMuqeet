@@ -2,7 +2,7 @@ import {
   Box,
   Typography,
   Stack,
-  Button
+  Button, Grid, Link
 } from "@mui/material";
 import { Container, Row, Col, Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
@@ -145,54 +145,170 @@ export const Header = () => {
 
 export const Footer = () => {
   return (
-    <Box component="footer" sx={{ marginTop: 15, py: 6, px: 6, bgcolor: "transparent" }}>
-      <Container fluid="xl">
-        <Row className="align-items-center gy-4">
-          <Col md={4}>
+    <Box
+      component="footer"
+      className="mesh-gradient"
+      sx={{
+        pt: '7em',        // replaces style={{ paddingTop: '7em' }}
+        pb: 6,            // replaces py: 6, now specific
+        // bgcolor: 'transparent' or any color you need
+      }}
+    >
+      <Container maxwidth="xl">
+        <Grid container sx={{
+          justifyContent: 'space-around',
+          alignItems: "center", gap: 3
+        }}>
+          {/* Left: Brand */}
+          <Grid xs={12} md={4} lg={4}>
             <Typography
               variant="h6"
-              fontWeight={900}
-              color="#4647d3"
-              fontFamily="Plus Jakarta Sans, Lato, sans-serif"
-              letterSpacing="-0.02em"
+              sx={{
+                fontWeight: '900',
+                color: "#4647d3",
+                fontFamily: "Plus Jakarta Sans, Lato, sans-serif",
+                letterSpacing: "-0.02em",
+                textAlign: { xs: 'center', md: 'left' }
+              }}
             >
-              DIGITAL ALCHEMIST
+              DIGITAL ALCHEMIST{' '}
+              <Box
+                component="span"
+                sx={{
+                  fontWeight: 700,
+                  letterSpacing: '0.1em',
+                  color: '#747779',
+                }}
+              >
+                :: Muqeet
+              </Box>
             </Typography>
-          </Col>
-          <Col md={4}>
-            <Stack direction="row" spacing={4} sx={{
-              justifyContent: "center"
-            }}>
-              {["LinkedIn", "GitHub", "Dribbble", "Contact"].map((link) => (
-                <Typography
+          </Grid>
+
+          {/* Center: Social Links */}
+          <Grid xs={12} md={4} lg={4}>
+            <Stack
+              direction="row"
+              useFlexGap
+              sx={{
+                gap: 3,
+                justifyContent: "center",
+                flexWrap: "wrap"
+              }}
+            >
+              {['LinkedIn', 'GitHub', 'Dribbble', 'Contact'].map((link) => (
+                <Link
                   key={link}
-                  variant="caption"
-                  textTransform="uppercase"
-                  letterSpacing="0.1em"
-                  color="#747779"
+                  // href="#" // Replace with actual URLs
+                  underline="none"
                   sx={{
-                    cursor: "pointer",
-                    transition: "all 0.2s",
-                    "&:hover": { color: "#4647d3", transform: "translateY(-2px)" },
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.1em',
+                    fontWeight: 500,
+                    color: '#747779',
+                    transition: 'all 0.2s',
+                    '&:hover': {
+                      color: '#4647d3',
+                      transform: 'translateY(-2px)',
+                    },
                   }}
                 >
                   {link}
-                </Typography>
+                </Link>
               ))}
             </Stack>
-          </Col>
-          <Col md={4} className="text-md-end">
+          </Grid>
+
+          {/* Right: Copyright */}
+          <Grid xs={12} md={4} lg={4}>
             <Typography
-              variant="caption"
-              textTransform="uppercase"
-              letterSpacing="0.1em"
-              color="#747779"
+              variant="subtitle2"
+              sx={{
+                fontWeight: 700,
+                textTransform: 'uppercase',
+                letterSpacing: '0.1em',
+                color: '#747779',
+                textAlign: { xs: 'center', md: 'right' },
+              }}
             >
-              © 2024 DIGITAL ALCHEMIST. BUILT WITH REFRACTIVE FLUIDITY.
+              © {new Date().getFullYear()} DIGITAL ALCHEMIST. BUILT WITH REFRACTIVE FLUIDITY.
             </Typography>
-          </Col>
-        </Row>
+          </Grid>
+        </Grid>
       </Container>
     </Box>
   );
 };
+
+
+
+
+
+// {/* <Box component="footer" sx={{ py: 6, bgcolor: "" }} className="mesh-gradient" style={{ paddingTop: '7em' }}>
+
+//       <Container maxWidth="xl" sx={{ py: 4 }}>
+//         <Grid container alignItems="center" spacing={3}>
+//           {/* Left: Brand */}
+//           <Grid item xs={12} md={4}>
+//             <Typography
+//               variant="h6"
+//               fontWeight={900}
+//               color="#4647d3"
+//               fontFamily="Plus Jakarta Sans, Lato, sans-serif"
+//               letterSpacing="-0.02em"
+//               textAlign={{ xs: 'center', md: 'left' }}
+//             >
+//               DIGITAL ALCHEMIST{' '}
+//               <Box component="span" sx={{ fontWeight: 700, letterSpacing: '0.1em', color: '#747779' }}>
+//                 :: Muqeet
+//               </Box>
+//             </Typography>
+//           </Grid>
+
+//           {/* Center: Social Links */}
+//           <Grid item xs={12} md={4}>
+//             <Stack
+//               direction="row"
+//               spacing={4}
+//               justifyContent="center"
+//               flexWrap="wrap"
+//               useFlexGap
+//             >
+//               {['LinkedIn', 'GitHub', 'Dribbble', 'Contact'].map((link) => (
+//                 <Link
+//                   key={link}
+//                   href="#" // Replace with actual URLs
+//                   underline="none"
+//                   color="#747779"
+//                   sx={{
+//                     textTransform: 'uppercase',
+//                     letterSpacing: '0.1em',
+//                     fontWeight: 500,
+//                     transition: 'all 0.2s',
+//                     '&:hover': { color: '#4647d3', transform: 'translateY(-2px)' },
+//                   }}
+//                 >
+//                   {link}
+//                 </Link>
+//               ))}
+//             </Stack>
+//           </Grid>
+
+//           {/* Right: Copyright */}
+//           <Grid item xs={12} md={4}>
+//             <Typography
+//               variant="subtitle2"
+//               sx={{
+//                 fontWeight: 700,
+//                 textTransform: 'uppercase',
+//                 letterSpacing: '0.1em',
+//                 color: '#747779',
+//                 textAlign: { xs: 'center', md: 'right' },
+//               }}
+//             >
+//               © {new Date().getFullYear()} DIGITAL ALCHEMIST. BUILT WITH REFRACTIVE FLUIDITY.
+//             </Typography>
+//           </Grid>
+//         </Grid>
+//       </Container>
+//     </Box> */}
