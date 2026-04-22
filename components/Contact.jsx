@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { db } from '../src/firebase.js';
-import { doc, setDoc, getDoc } from "firebase/firestore";
+import { doc, setDoc, getDoc, collection, addDoc } from "firebase/firestore";
 import { Container, Row, Col } from "react-bootstrap";
 import {
   Box,
@@ -33,11 +33,20 @@ const ContactPage = () => {
     e.preventDefault()
     try {
       // 1. Create a reference to a document
-      const testRef = doc(db, "tests", "hello-id");
+      const testRef = collection(db, "tests");
+      // const id = Math.floor(Math.random() * 1000000);
+      // const testRef = doc(db, "tests", details.email + '-' + id);
 
+      const docRef = await addDoc(testRef, {
+        message: "Hello World from the Cloud!",
+        details: details,
+        timestamp: new Date() // Good practice to track when it was sent
+      });
+
+      console.log('Document written with ID: ', docRef.id);
       // 2. Write to the database
       // setStatus("Writing to Firebase...");
-      await setDoc(testRef, { message: "Hello World from the Cloud!", details: details });
+      // await setDoc(testRef, { message: "Hello World from the Cloud!", details: details });
       console.log('sent');
 
       // 3. Read it back
